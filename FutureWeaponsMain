@@ -1,0 +1,163 @@
+package FutureWeapons;
+
+
+import items.ItemComputerChip;
+import items.ItemHoloSight;
+import items.ItemPlasmaBolt;
+import items.ItemPlasmaCanister;
+import items.ItemPlasmaCell;
+import items.ItemPlasmaRifle;
+import items.ItemPlasmaRifleFiringAssembly;
+import items.ItemPlasmaRifleStock;
+import items.ItemPlasmaRifleStockBack;
+import items.ItemPlasmaRifleStockFront;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
+import entities.entityplasmabolt;
+
+
+/**
+ * This @Mod annotation tells forge that we are creating a new mod. Without this, forge wont
+ * find your mod. This takes 2 values, a modid, which is a "name" for your mod. This cant be the
+ * same for ANY mod. So find a name which is new. Version is the current mod version.
+ */
+@Mod(modid = Reference.MODID, version = Reference.VERSION)
+public class FutureWeaponsMain 
+{
+	@SidedProxy( clientSide = "FutureWeapons.ClientProxy", serverSide = "FutureWeapons.CommonProxy" )
+	public static CommonProxy proxy;
+
+  public static Item Plasma_Rifle;
+  public static Item Plasma_Canister;
+  public static Item Plasma_Cell;
+  public static Item Plasma_Rifle_Stock_Front;
+  public static Item Plasma_Rifle_Stock_Back;
+  public static Item Computer_Chip;
+  public static Item Plasma_Rifle_Firing_Assembly;
+  public static Item Holo_Sight;
+  public static Item Plasma_Rifle_Stock;
+  public static Item Plasma_Bolt;
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event)
+	{
+        //Block handlers, handles all blocks
+
+
+        //Item handlers, handles all items
+	Plasma_Rifle = new ItemPlasmaRifle();
+	Plasma_Canister = new ItemPlasmaCanister();
+	Plasma_Cell = new ItemPlasmaCell();
+	Plasma_Rifle_Stock_Front = new ItemPlasmaRifleStockFront();
+	Plasma_Rifle_Stock_Back = new ItemPlasmaRifleStockBack();
+	Computer_Chip = new ItemComputerChip();
+	Plasma_Rifle_Firing_Assembly = new ItemPlasmaRifleFiringAssembly();
+	Holo_Sight = new ItemHoloSight();
+	Plasma_Rifle_Stock = new ItemPlasmaRifleStock();
+	Plasma_Bolt = new ItemPlasmaBolt();
+
+	
+	
+	
+	RegisterHelper.registerItem(Plasma_Rifle);
+	RegisterHelper.registerItem(Plasma_Canister);
+	RegisterHelper.registerItem(Plasma_Cell);
+	RegisterHelper.registerItem(Plasma_Rifle_Stock_Front);
+	RegisterHelper.registerItem(Plasma_Rifle_Stock_Back);
+	RegisterHelper.registerItem(Computer_Chip);
+	RegisterHelper.registerItem(Plasma_Rifle_Firing_Assembly);
+	RegisterHelper.registerItem(Holo_Sight);
+	RegisterHelper.registerItem(Plasma_Rifle_Stock);
+	RegisterHelper.registerItem(Plasma_Bolt);
+
+
+
+	ItemStack redstoneStack = new ItemStack(Items.redstone);
+	ItemStack redstonetorchStack = new ItemStack(Blocks.redstone_torch);
+	ItemStack ironStack = new ItemStack(Items.iron_ingot);
+	ItemStack waterbucketStack = new ItemStack(Items.water_bucket);
+	ItemStack plasmacanisterStack = new ItemStack(Plasma_Canister);
+	ItemStack plasmacellStack = new ItemStack(Plasma_Cell);
+	ItemStack leverStack = new ItemStack(Blocks.lever);
+	ItemStack goldStack = new ItemStack(Items.gold_ingot);
+	ItemStack diamondStack = new ItemStack(Items.diamond);
+	ItemStack glassStack = new ItemStack(Blocks.glass);
+	ItemStack glowstoneStack = new ItemStack(Items.glowstone_dust);
+	ItemStack stockfrontStack = new ItemStack(FutureWeaponsMain.Plasma_Rifle_Stock_Front);
+	ItemStack stockbackStack = new ItemStack(FutureWeaponsMain.Plasma_Rifle_Stock_Back);
+	ItemStack stockStack = new ItemStack(FutureWeaponsMain.Plasma_Rifle_Stock);
+	ItemStack holosightStack = new ItemStack(FutureWeaponsMain.Holo_Sight);
+	ItemStack computerStack = new ItemStack(FutureWeaponsMain.Computer_Chip);
+	ItemStack firingassemblyStack = new ItemStack(FutureWeaponsMain.Plasma_Rifle_Firing_Assembly);
+{
+	GameRegistry.addShapedRecipe(new ItemStack(Plasma_Canister, 16), new Object []{ "xwx", "yzy", "ywy",
+        'w', redstoneStack, 'x', redstonetorchStack, 'y', ironStack, 'z', waterbucketStack});
+	
+
+{
+	GameRegistry.addShapedRecipe(new ItemStack(FutureWeaponsMain.Plasma_Cell), new Object []{ "yyy", "xyz", "yyy",
+        'x', redstoneStack, 'y', ironStack, 'z', plasmacanisterStack});
+	
+{
+	GameRegistry.addShapedRecipe(new ItemStack(FutureWeaponsMain.Plasma_Rifle_Stock_Front), new Object []{ "x  ", " x ", "x y",
+	    'x', ironStack, 'y', plasmacellStack});
+{
+	GameRegistry.addShapedRecipe(new ItemStack(FutureWeaponsMain.Plasma_Rifle_Stock_Back), new Object []{ "x  ", "xyx", " zx",
+		'x', ironStack, 'y', redstoneStack, 'z', leverStack});
+{
+	GameRegistry.addShapedRecipe(new ItemStack(FutureWeaponsMain.Computer_Chip), new Object []{ "xyx", "yzy", "xyx",
+		'x', diamondStack, 'y', redstoneStack, 'z', goldStack});
+{
+	GameRegistry.addShapedRecipe(new ItemStack(FutureWeaponsMain.Plasma_Rifle_Firing_Assembly), new Object []{ "xxx", "zzy", "xxx",
+		'x', ironStack, 'y', redstoneStack, 'z', glassStack});
+{
+	GameRegistry.addShapedRecipe(new ItemStack(FutureWeaponsMain.Holo_Sight), new Object []{ "zzz", "xxx", "yyy",
+		'x', glowstoneStack, 'y', redstoneStack, 'z', glassStack});
+{
+	GameRegistry.addShapedRecipe(new ItemStack(FutureWeaponsMain.Plasma_Rifle_Stock), new Object []{ "x ", " y",
+		'x', stockfrontStack, 'y', stockbackStack});
+{
+	GameRegistry.addShapedRecipe(new ItemStack(FutureWeaponsMain.Plasma_Rifle), new Object []{ " z ", "wxy",
+		'w', firingassemblyStack, 'x', stockStack, 'y', computerStack, 'z', holosightStack});
+
+
+
+
+
+
+	
+	int modEntityID = 0;
+	
+	EntityRegistry.registerModEntity(entityplasmabolt.class, "Plasma Bolt", ++modEntityID, this, 64, 10, 
+	true);
+	proxy.registerRenderThings();
+   }
+   
+	{
+		}
+	}
+}
+	}
+	}
+	}
+}
+	}
+}
+	}
+	}
+
+
+
+
+
+
