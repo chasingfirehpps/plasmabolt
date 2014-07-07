@@ -1,0 +1,15 @@
+package FutureWeapons;
+
+import net.minecraft.client.renderer.entity.RenderSnowball;
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import entities.entityplasmabolt;
+//import entities.renderplasmabolt;
+
+public class ClientProxy extends CommonProxy {
+
+	public void registerRenderers() 
+	{
+		RenderingRegistry.registerEntityRenderingHandler(entityplasmabolt.class, new RenderSnowball
+				(FutureWeaponsMain.Plasma_Bolt));
+}
+}
